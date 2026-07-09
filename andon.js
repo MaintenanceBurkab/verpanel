@@ -1,6 +1,6 @@
 // ==================== ANDON.JS VERPANEL v5.4 (BASE64 SESLİ - TEMİZ) ====================
 
-const GAS_ANDON_URL = "https://script.google.com/macros/s/AKfycbzjUt47s8EntMJAeT51drfTc2fzIoZSScoXnpbPCizj8ZrP792oBqXD56wQ_TKTGYb3/exec";
+const GAS_ANDON_URL = "https://script.google.com/macros/s/AKfycbxXzywFQXxG1jmiX1gEPFwLvlXg9NY8F0u_NdJMmnDA5slsoPcY2YJZKfJ9571zwdbT/exec";
 // ==================== SES SİSTEMİ ====================
 let sesAktif = false;
 let sonVerimlilikSeviyesi = 0;
