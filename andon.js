@@ -396,28 +396,27 @@ function baslatKayanDuyuru() {
   }, 30);
 }
 
-// ==================== PERSONEL VERİMLİLİĞİ ÇEKME (Sheets'e uyumlu) ====================
+// ==================== PERSONEL VERİMLİLİĞİ ÇEKME (ProsesAtama'dan, günlük, mola düşülmüş) ====================
 function personelVerimCek() {
-  const url = `${GAS_ANDON_URL}?action=getPersonelVerim&sheet=PersonelVerim&callback=personelVerimGeldi&_t=${Date.now()}`;
+  const url = `${GAS_ANDON_URL}?action=getPersonelVerimGunluk&callback=personelVerimGeldi&_t=${Date.now()}`;
   const script = document.createElement('script');
   script.src = url;
   document.body.appendChild(script);
 }
 
 window.personelVerimGeldi = function(data) {
-  console.log('📊 Gelen Personel Verisi:', data); // Konsolda kontrol et
-  console.log("📋 Raw data:", data?.data);
+  console.log('📊 Gelen Personel Verisi:', data);
   if (!data || !data.ok || !Array.isArray(data.data)) {
     console.warn("❌ Personel verisi alınamadı veya boş");
     return;
   }
 
   const personeller = data.data.map(row => ({
-    adSoyad: row['Ad Soyad'] || row['AdSoyad'] || row['ad soyad'] || 'Bilinmeyen',
-    takim: row['Takım'] || row['Takim'] || 'Üretim',
-    verim: parseFloat(row['Verim %']) || parseFloat(row['Verim']) || 0,
-    saat: row['Saat'] || ''
-  })).filter(p => p.verim > 0);
+    adSoyad: row.personel || 'Bilinmeyen',
+    takim: row.takim || 'Üretim',
+    verim: Number(row.verim) || 0,
+    adet: Number(row.adet) || 0
+  })).filter(p => p.adSoyad !== 'Bilinmeyen');
 
   console.log("✅ İşlenmiş personel sayısı:", personeller.length);
   guncellePersonelVerim(personeller);
