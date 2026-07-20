@@ -1,6 +1,6 @@
 // ==================== ANDON.JS VERPANEL v5.5 (AKTİF DURUŞ + CANLI SAYAÇ) ====================
 
-const GAS_ANDON_URL = "https://script.google.com/macros/s/AKfycbxMvsbGS0IrqJo4xScv7BoQRIXUt19gXVX-SqAwoczq0FkPc8gt6M-tqHCBn06N9ms/exec";
+const GAS_ANDON_URL = "https://script.google.com/macros/s/AKfycbwRPDHyAfhz0CI4CeyT6w2VbDkwRXegB1CIK1hJld7p8oDHtQmcFHdqwRS-MJGdII-3/exec";
 // ==================== SES SİSTEMİ ====================
 let sesAktif = false;
 let sonVerimlilikSeviyesi = 0;
